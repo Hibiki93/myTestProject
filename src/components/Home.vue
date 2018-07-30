@@ -61,7 +61,7 @@
                                           <div class="headline" ><strong>{{product.name}}</strong></div>
                                       </v-card-title>
                                       <v-card-text class="text-xs-center" >                                        
-                                            <v-btn :href="'./product/' + product.id" color="orange lighten-1" dark>Product Detail</v-btn>
+                                            <v-btn :href="'#/product/' + product.id" color="orange lighten-1" dark>Product Detail</v-btn>
                                       </v-card-text>                              
                                   </v-flex>
                           </v-layout>

@@ -1,36 +1,35 @@
 <template>
-    <v-app class="productPage" row xs10 offset-xs1 >
+    <v-app class="productPage" >
         <router-link to="/">
             <img class="logo" src="./../../static/img/suppliermalaysia.gif">
         </router-link>
-        
-        <v-container>
-            <v-flex xs10 offset-xs1>
+        <v-container class="container">
+            <v-flex xs12 offset-xs1>
               <v-layout row wrap >
-                <v-flex>
-                  <v-card-media
+                <v-flex xs12 md5>
+                  <v-card-media 
                     src="https://cdn2.npcdn.net/images/product/500x1000-1-0/726816-product2011343.jpg"
                     contain
                     height="250"
                   ></v-card-media>
                 </v-flex>
-                <v-flex class="text-xs-left" >
-                  <v-card-title>
+                <v-flex class="text-xs-left" xs12 md7>
+                  <v-card-title >
                     <div>
                       <div class="headline">{{product.name}}</div>
                       <div>
                           <v-chip>
-                              <v-icon left>fas fa-building</v-icon>
+                              <v-icon left size="18px" >fas fa-building</v-icon>
                                 Supplier :
                                     {{product.supplier}}</v-chip></div>
                           <div>
                               <v-chip>
-                                  <v-icon left>fas fa-calendar-alt</v-icon>
+                                  <v-icon left size="18px">fas fa-calendar-alt</v-icon>
                                   Created Date :
                                   {{product.createdDate}}</v-chip></div>
                             <div>
                               <v-chip>
-                                  <v-icon left>fas fa-globe</v-icon>
+                                  <v-icon left size="18px">fas fa-globe</v-icon>
                                   Website :
                                   {{product.website}}</v-chip></div>
                     </div>
@@ -39,10 +38,15 @@
                 </v-layout>
           </v-flex>
         </v-container>
-        <v-container row wrap>
             <!-- contact supplier form -->
-            <v-card-media>
+            <v-container class="center-part">
+            <v-layout row wrap>            
+            <v-flex xs12 md4>
+            <v-card-media >
                 <img src="./../../static/img/map.jpg" >
+            </v-card-media>
+            </v-flex>            
+            <v-flex xs12 md8>
                 <v-card-text class="text-xs-left" >
                     <div><v-icon left>fas fa-globe-americas</v-icon>  Main Office</div>
                     <div><strong>Dexwin School Uniform</strong><p>(1030237-M)</p></div>
@@ -51,60 +55,58 @@
                     <div>Fax: +604-5518134</div>
                     <div>Email: jiaquan@dexwin.com.my</div>
                 </v-card-text>
-            </v-card-media>
-                        <div>
+            </v-flex>
+            </v-layout>
+            </v-container>
+                    <v-container xs12 md7 >
                             <v-btn
                                 color="orange lighten-1"
                                 dark
                                 >Contact Supplier</v-btn>
-                                <v-container xs6 >
-                                        <v-card>
-                                            <v-flex>
-                                                <v-text-field
-                                                    outline
-                                                    v-validate="'required|max:10'"
-                                                    label="Your Name"
-                                                    :rules="nameRules"
-                                                    v-model="name"
-                                                    :counter="10"
-                                                    ></v-text-field>
-                                            <v-text-field
-                                                outline
-                                                label="Your Contact Number"
-                                                v-model="contactNumber"
-                                                ></v-text-field>
-                                                <v-text-field
-                                                outline
-                                                label="Email"
-                                                :rules="emailRules"
-                                                v-model="email"
-                                                ></v-text-field>
-                                                    <v-textarea
-                                                    name="input-7-1"
-                                                    outline
-                                                    label="Leave Your Message Here"
-                                                    auto-grow
-                                                    rows="2"
-                                                    v-model="message"
-                                                    ></v-textarea>
-                                                    <v-checkbox
-                                                        v-model="checkbox"
-                                                        :rules="[v => !!v || 'You must click to continue!']"
-                                                        label="I'm not a robot"
-                                                        required
-                                                        ></v-checkbox>
-                                                        <v-btn @click="submit">submit</v-btn>
-                                                        <v-alert
-                                                            :value="alert"
-                                                            type="success"
-                                                            transition="scale-transition"
-                                                            >
-                                                            Successful Submit
-                                                            </v-alert>
-                                            </v-flex>
-                                        </v-card>
-                                </v-container>
-                            </div>
+                                </div>
+                                <v-flex>
+                                    <v-text-field
+                                        outline
+                                        v-validate="'required|max:10'"
+                                        label="Your Name"
+                                        :rules="nameRules"
+                                        v-model="name"
+                                        :counter="10"
+                                        ></v-text-field>
+                                <v-text-field
+                                    outline
+                                    label="Your Contact Number"
+                                    v-model="contactNumber"
+                                    ></v-text-field>
+                                    <v-text-field
+                                    outline
+                                    label="Email"
+                                    :rules="emailRules"
+                                    v-model="email"
+                                    ></v-text-field>
+                                        <v-textarea
+                                        name="input-7-1"
+                                        outline
+                                        label="Leave Your Message Here"
+                                        auto-grow
+                                        rows="2"
+                                        v-model="message"
+                                        ></v-textarea>
+                                        <v-checkbox
+                                            v-model="checkbox"
+                                            :rules="[v => !!v || 'You must click to continue!']"
+                                            label="I'm not a robot"
+                                            required
+                                            ></v-checkbox>
+                                            <v-btn @click="submit">submit</v-btn>
+                                            <v-alert
+                                                :value="alert"
+                                                type="success"
+                                                transition="scale-transition"
+                                                >
+                                                Successful Submit
+                                                </v-alert>
+                                </v-flex>
         </v-container>
     </v-app>
 </template>
@@ -156,3 +158,13 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.headline {
+  font-size: 20px !important;
+}
+.center-part {
+  justify-content: center !important;
+  align-items: center !important;
+}
+</style>
