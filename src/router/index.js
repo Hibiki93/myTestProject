@@ -1,16 +1,20 @@
-import Vue from 'vue'
-import Router from 'vue-router'
-import Home from '@/components/Home'
-import 'vuetify/dist/vuetify.min.css' // Ensure you are using css-loader
+import Vue from "vue";
+import Router from "vue-router";
+import Home from "@/components/Home";
+import Productpage from "@/components/productDetail"
 
-Vue.use(Router)
+Vue.use(Router);
 
 export default new Router({
-  routes: [
-    {
-      path: '/',
-      name:'Home',
+  routes: [{
+      path: "/",
+      name: "Home",
       component: Home
     },
+    {
+      path: "/product/:id",
+      name: "Product",
+      component: Productpage
+    }
   ]
-})
+});
